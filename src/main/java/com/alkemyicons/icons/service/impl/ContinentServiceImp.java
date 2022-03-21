@@ -8,6 +8,8 @@ import com.alkemyicons.icons.service.ContinentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ContinentServiceImp implements ContinentService {
 
@@ -17,6 +19,11 @@ public class ContinentServiceImp implements ContinentService {
     @Autowired
     private ContinentRepository continentRepository;
 
+    public List<ContinentDTO> getAllContinentes(){
+        List<ContinentEntity> entities = continentRepository.findAll();
+        List<ContinentDTO>result = continentMapper.continentEntityToDTOList(entities);
+        return result;
+    }
     public ContinentDTO save(ContinentDTO dto){
 
         //lo convierto a entity
@@ -24,7 +31,7 @@ public class ContinentServiceImp implements ContinentService {
         //la guardo
         ContinentEntity entitySaved = continentRepository.save(entity);
         //        //la entidad guardada la convierto en dto
-        ContinentDTO result = continentMapper.continentEntityTODTO(entitySaved);
+        ContinentDTO result = continentMapper.continentEntityToDTO(entitySaved);
 
         return result;
     }

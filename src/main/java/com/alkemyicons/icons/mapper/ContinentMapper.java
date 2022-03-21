@@ -5,6 +5,9 @@ import com.alkemyicons.icons.entity.ContinentEntity;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class ContinentMapper {
 
@@ -16,7 +19,7 @@ public class ContinentMapper {
         return continentEntity;
     }
 
-   public ContinentDTO continentEntityTODTO(ContinentEntity entity){
+   public ContinentDTO continentEntityToDTO(ContinentEntity entity){
 
         ContinentDTO continentDTO = new ContinentDTO();
         continentDTO.setId(entity.getId());
@@ -25,4 +28,11 @@ public class ContinentMapper {
         return continentDTO;
     }
 
+    public List<ContinentDTO> continentEntityToDTOList(List<ContinentEntity> entities) {
+        List <ContinentDTO> dtos = new ArrayList<>();
+        for(ContinentEntity entity : entities){
+            dtos.add(this.continentEntityToDTO(entity));
+        }
+        return dtos;
+    }
 }
