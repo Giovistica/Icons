@@ -1,5 +1,6 @@
 package com.alkemyicons.icons.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,7 +27,6 @@ public class IconEntity {
 
     @Column(name = "fecha_creacion")
     @DateTimeFormat(pattern = "yyyy/MM/dd")
-
     private LocalDate fechaCreacion;
 
     private Long altura;
