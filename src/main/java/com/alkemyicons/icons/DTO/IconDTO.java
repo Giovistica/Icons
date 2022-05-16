@@ -19,9 +19,11 @@ public class IconDTO {
     private String imagen;
     private String denominacion;
 
-    //private LocalDate fechaCreacion;
+    private LocalDate fechaCreacion;
     private Long altura;
     private String historia;
     private Boolean deleted = Boolean.FALSE;
     private List<PaisEntity> paises = new ArrayList<>();
+
+
 }
